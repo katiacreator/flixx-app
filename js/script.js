@@ -1,3 +1,29 @@
+/* Table of Contents:
+   These are the line numbers for each function:
+   Line 24 - displayPopularMovies
+        60 - displayPopularShows
+        96 - displayMovieDetails
+        170 - displayShowDetails
+        241 - displayBackgroundImage
+        265 - search
+        293 - displaySearchResults
+        349 - displayPagination
+        387 - displaySlider
+        412 - displayShowSlider
+        435 - initSwiper
+        464 - fetchAPIData
+        482 - searchAPIData
+        500 - showSpinner
+        505 - hideSpinner
+        512 - highlightActiveLink
+        523 - showAlert
+        533 - addCommasToNumber
+        538 - init
+
+
+
+*/
+
 const global = {
     currentPage: window.location.pathname,
     search: {
