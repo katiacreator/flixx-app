@@ -390,6 +390,29 @@ const global = {
       initSwiper();
     });
   }
+
+  // Display Slider TV Shows
+  async function displayShowSlider() {
+    const { results } = await fetchAPIData('tv/on_the_air');
+  
+    results.forEach((show) => {
+      const div = document.createElement('div');
+      div.classList.add('swiper-slide');
+  
+      div.innerHTML = `
+        <a href="tv-details.html?id=${show.id}">
+          <img src="https://image.tmdb.org/t/p/w500${show.poster_path}" alt="${show.name}" />
+        </a>
+        <h4 class="swiper-rating">
+          <i class="fas fa-star text-secondary"></i> ${show.vote_average} / 10
+        </h4>
+      `;
+  
+      document.querySelector('.swiper-wrapper').appendChild(div);
+  
+      initSwiper();
+    });
+  }
   
   function initSwiper() {
     const swiper = new Swiper('.swiper', {
@@ -414,6 +437,8 @@ const global = {
       },
     });
   }
+  
+ 
   
   // Fetch data from TMDB API
   async function fetchAPIData(endpoint) {
@@ -491,7 +516,8 @@ const global = {
         displaySlider();
         displayPopularMovies();
         break;
-      case '/shows.html':
+        case '/shows.html':
+        displayShowSlider();
         displayPopularShows();
         break;
       case '/movie-details.html':
